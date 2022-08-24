@@ -37,15 +37,15 @@ class GUIMath implements ActionListener{
 
         frame = new JFrame("Gui Math");
 
-        labelCW = new JLabel("Correct: " + str(CountC) + " Wrong: 0" + str(CountW));
+        labelCW = new JLabel("Correct: " + Integer.toString(CountC) + " Wrong: " + Integer.toString(CountW));
         labelCW.setHorizontalAlignment(SwingConstants.CENTER);
-        labelSum = new JLabel(str(FirstNum) + " + " + str(SecondNum) + " = ");
-        labelSum = setHorizontalAlignment(SwingConstants.CENTER);
+        labelSum = new JLabel(Integer.toString(FirstNum) + " + " + Integer.toString(SecondNum) + " = ");
+        labelSum.setHorizontalAlignment(SwingConstants.CENTER);
 
         textField = new JTextField(1);
         textField.setHorizontalAlignment(SwingConstants.CENTER);
 
-        JButton button = new JButton("Submit");
+        button = new JButton("Submit");
         button.addActionListener(this);
         
         panel = new JPanel();
@@ -67,17 +67,19 @@ class GUIMath implements ActionListener{
         int input = Integer.parseInt(textField.getText());
         if(input == Sum){
             CountC++;
-            labelCW.setText("Correct: " + str(CountC) + " Wrong: " + str(CountW));
+            labelCW.setText("Correct: " + Integer.toString(CountC) + " Wrong: " + Integer.toString(CountW));
+            Random random = new Random();
             FirstNum = random.nextInt(10);
             SecondNum = random.nextInt(10);
-            labelSum.setText(str(FirstNum) + " + " + str(SecondNum));
+            labelSum.setText(Integer.toString(FirstNum) + " + " + Integer.toString(SecondNum));
         }
         else if(input != Sum){
             CountW++;
-            labelCW.setText("Correct: " + str(CountC) + " Wrong: ") + str(CountW);
+            labelCW.setText("Correct: " + Integer.toString(CountC) + " Wrong: " + Integer.toString(CountW));
+            Random random = new Random();
             FirstNum = random.nextInt(10);
             SecondNum = random.nextInt(10);
-            labelSum.setText(str(FirstNum) + " + " + str(SecondNum))
+            labelSum.setText(Integer.toString(FirstNum) + " + " + Integer.toString(SecondNum));
         }
         else{
             labelCW.setText("ERROR");
@@ -88,7 +90,7 @@ class GUIMath implements ActionListener{
 
     public static void main(String args[]) {
 
-        GUIMath gui = new GUIMath();
+        new GUIMath();
     }
 
 }
